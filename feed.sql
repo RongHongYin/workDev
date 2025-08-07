@@ -1,17 +1,17 @@
 /*
  Navicat Premium Dump SQL
 
- Source Server         : 本地数据库
+ Source Server         : 本地
  Source Server Type    : MySQL
- Source Server Version : 80043 (8.0.43)
+ Source Server Version : 80042 (8.0.42)
  Source Host           : localhost:3306
  Source Schema         : feed
 
  Target Server Type    : MySQL
- Target Server Version : 80043 (8.0.43)
+ Target Server Version : 80042 (8.0.42)
  File Encoding         : 65001
 
- Date: 06/08/2025 00:14:23
+ Date: 07/08/2025 17:58:43
 */
 
 SET NAMES utf8mb4;
@@ -601,12 +601,72 @@ CREATE TABLE `feed_spider_c_template`  (
   `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `tags` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '文章tags',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+  `fulltextfliter` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '全文过滤杂项元素',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `idx_createdtime`(`createdtime` ASC) USING BTREE,
+  INDEX `idx_updatedtime`(`updatedtime` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_c_template
 -- ----------------------------
+INSERT INTO `feed_spider_c_template` VALUES (1, '1', '1', '2', '2', 'div.mc-column.content-text.active-extra-styles', '2025-08-06 10:22:24', '2025-08-06 11:10:10', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for feed_spider_content_template
+-- ----------------------------
+DROP TABLE IF EXISTS `feed_spider_content_template`;
+CREATE TABLE `feed_spider_content_template`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `fathertag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '父标签',
+  `childtag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '子标签',
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `target_attr` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '提取的目标属性名，例如 datetime、href、content',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of feed_spider_content_template
+-- ----------------------------
+INSERT INTO `feed_spider_content_template` VALUES (2, NULL, 'meta[property=og:description]', '2025-08-06 11:07:57', '2025-08-06 11:07:57', 'content');
+
+-- ----------------------------
+-- Table structure for feed_spider_fulltext_filter_template
+-- ----------------------------
+DROP TABLE IF EXISTS `feed_spider_fulltext_filter_template`;
+CREATE TABLE `feed_spider_fulltext_filter_template`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `fathertag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '父标签',
+  `childtag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '子标签',
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `target_attr` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '提取的目标属性名，例如 datetime、href、content',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of feed_spider_fulltext_filter_template
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for feed_spider_img_template
+-- ----------------------------
+DROP TABLE IF EXISTS `feed_spider_img_template`;
+CREATE TABLE `feed_spider_img_template`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `fathertag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '父标签',
+  `childtag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '子标签',
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `target_attr` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '提取的目标属性名，例如 datetime、href、content',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of feed_spider_img_template
+-- ----------------------------
+INSERT INTO `feed_spider_img_template` VALUES (1, NULL, 'meta[property=og:image]', '2025-08-06 10:42:28', '2025-08-06 10:42:33', 'content');
 
 -- ----------------------------
 -- Table structure for feed_spider_task
@@ -623,16 +683,77 @@ CREATE TABLE `feed_spider_task`  (
   `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `interval` int NOT NULL DEFAULT 30,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `idx_status`(`status` ASC) USING BTREE,
+  INDEX `idx_publisher_status`(`publisher` ASC, `status` ASC) USING BTREE,
+  INDEX `idx_country_status`(`country` ASC, `status` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_task
 -- ----------------------------
-INSERT INTO `feed_spider_task` VALUES (7, 'br', 'pt', NULL, 2, '[1,2]', 'CBN', '2025-08-05 11:46:09', '2025-08-06 00:01:14', 2);
-INSERT INTO `feed_spider_task` VALUES (8, 'br', 'pt', NULL, 0, '[3,4]', 'CBN', '2025-08-05 11:46:09', '2025-08-05 15:20:19', 1);
-INSERT INTO `feed_spider_task` VALUES (9, 'br', 'pt', NULL, 0, '[5,6]', 'CBN', '2025-08-05 11:46:09', '2025-08-05 15:20:20', 1);
-INSERT INTO `feed_spider_task` VALUES (10, 'br', 'pt', NULL, 0, '[7,8]', 'CBN', '2025-08-05 11:46:09', '2025-08-05 15:20:22', 1);
+INSERT INTO `feed_spider_task` VALUES (23, 'br', 'pt', NULL, 1, '[1,2]', 'CBN', '2025-08-07 15:22:57', '2025-08-07 17:48:39', 5);
+INSERT INTO `feed_spider_task` VALUES (24, 'br', 'pt', NULL, 0, '[3,4]', 'CBN', '2025-08-07 15:22:57', '2025-08-07 15:22:57', 30);
+INSERT INTO `feed_spider_task` VALUES (25, 'br', 'pt', NULL, 0, '[5,6]', 'CBN', '2025-08-07 15:22:57', '2025-08-07 15:22:57', 30);
+INSERT INTO `feed_spider_task` VALUES (26, 'br', 'pt', NULL, 0, '[7,8]', 'CBN', '2025-08-07 15:22:57', '2025-08-07 15:22:57', 30);
+
+-- ----------------------------
+-- Table structure for feed_spider_task_resource_monitor
+-- ----------------------------
+DROP TABLE IF EXISTS `feed_spider_task_resource_monitor`;
+CREATE TABLE `feed_spider_task_resource_monitor`  (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `task_id` int NOT NULL COMMENT '任务ID',
+  `start_time` bigint NOT NULL COMMENT '开始时间戳',
+  `end_time` bigint NULL DEFAULT NULL COMMENT '结束时间戳',
+  `duration` bigint NULL DEFAULT NULL COMMENT '执行时长(毫秒)',
+  `cpu_usage` double NULL DEFAULT NULL COMMENT 'CPU使用率(%)',
+  `system_cpu_usage` double NULL DEFAULT NULL COMMENT '系统整体CPU使用率(%)',
+  `memory_usage` bigint NULL DEFAULT NULL COMMENT '内存使用量(字节)',
+  `heap_memory_usage` bigint NULL DEFAULT NULL COMMENT '堆内存使用量(字节)',
+  `processed_urls` int NULL DEFAULT 0 COMMENT '处理的URL数量',
+  `processed_articles` int NULL DEFAULT 0 COMMENT '处理的文章数量',
+  `http_requests` int NULL DEFAULT 0 COMMENT 'HTTP请求次数',
+  `avg_response_time` bigint NULL DEFAULT NULL COMMENT '平均响应时间(毫秒)',
+  `sql_executions` bigint NULL DEFAULT 0 COMMENT 'SQL执行次数',
+  `sql_total_time` bigint NULL DEFAULT NULL COMMENT 'SQL总耗时(毫秒)',
+  `status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'RUNNING' COMMENT '执行状态',
+  `error_message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '错误信息',
+  `thread_cpu_time` bigint NULL DEFAULT NULL COMMENT '线程CPU时间',
+  `last_update_time` bigint NULL DEFAULT NULL COMMENT '上次更新时间',
+  `process_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '进程ID',
+  `created_time` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `idx_task_id`(`task_id` ASC) USING BTREE,
+  INDEX `idx_created_time`(`created_time` ASC) USING BTREE,
+  INDEX `idx_status`(`status` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '任务资源监控表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of feed_spider_task_resource_monitor
+-- ----------------------------
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (1, 23, 1754558918978, NULL, NULL, 0, 17.132264212783475, 64551880, 64551880, 0, 5, 6, 0, 0, 0, 'RUNNING', NULL, 15625000, 27561868385400, '27288', '2025-08-07 17:28:39');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (2, 23, 1754559218985, 1754559218995, 10, 0, 16.299756908755015, 45926064, 45926064, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 15625000, 27861884086200, '27288', '2025-08-07 17:33:39');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (3, 23, 1754559518975, 1754559518989, 14, 127.49377830361878, 16.08312647064041, 128257648, 128257648, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 46875000, 28161877629400, '27288', '2025-08-07 17:38:39');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (4, 23, 1754559818973, 1754559818991, 18, 0, 16.20691473124809, 90538288, 90538288, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 15625000, 28461878887800, '27288', '2025-08-07 17:43:39');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (5, 23, 1754560118986, NULL, NULL, 0, 18.46061323223668, 97034256, 97034256, 0, 6, 7, 0, 0, 0, 'RUNNING', NULL, 15625000, 28761877211200, '27288', '2025-08-07 17:48:39');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (6, 23, 1754560418986, 1754560419001, 15, 0, 22.721554638778642, 61186592, 61186592, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 46875000, 29061889699300, '27288', '2025-08-07 17:53:39');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (7, 23, 1754560718982, 1754560719044, 62, 77.43147211475882, 26.510367966280402, 137792128, 137792128, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 78125000, 29361932749600, '27288', '2025-08-07 17:58:39');
+
+-- ----------------------------
+-- Table structure for feed_spider_time_analysis_tem
+-- ----------------------------
+DROP TABLE IF EXISTS `feed_spider_time_analysis_tem`;
+CREATE TABLE `feed_spider_time_analysis_tem`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `value` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '时间格式模板，如 %Y-%m-%d %H:%M:%S',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of feed_spider_time_analysis_tem
+-- ----------------------------
+INSERT INTO `feed_spider_time_analysis_tem` VALUES (1, '%Y-%m-%dT%H:%M:%S.%f%z');
 
 -- ----------------------------
 -- Table structure for feed_spider_time_template
@@ -645,12 +766,35 @@ CREATE TABLE `feed_spider_time_template`  (
   `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `target_attr` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '提取的目标属性名，例如 datetime、href、content',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `idx_fathertag_prefix`(`fathertag`(100) ASC) USING BTREE,
+  INDEX `idx_childtag_prefix`(`childtag`(100) ASC) USING BTREE,
+  INDEX `idx_target_attr_prefix`(`target_attr` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_time_template
 -- ----------------------------
+INSERT INTO `feed_spider_time_template` VALUES (1, NULL, 'time[itemprop=datePublished]', '2025-08-06 10:12:41', '2025-08-07 15:35:05', 'datetime');
+
+-- ----------------------------
+-- Table structure for feed_spider_title_template
+-- ----------------------------
+DROP TABLE IF EXISTS `feed_spider_title_template`;
+CREATE TABLE `feed_spider_title_template`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `fathertag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '父标签',
+  `childtag` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '子标签',
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `target_attr` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '提取的目标属性名，例如 datetime、href、content',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of feed_spider_title_template
+-- ----------------------------
+INSERT INTO `feed_spider_title_template` VALUES (2, NULL, 'meta[property=og:title]', '2025-08-06 10:43:19', '2025-08-06 10:43:19', 'content');
 
 -- ----------------------------
 -- Table structure for feed_spider_url
@@ -668,26 +812,30 @@ CREATE TABLE `feed_spider_url`  (
   `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `publisher` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '网站名称\r\n',
+  `timedeviation` int NULL DEFAULT NULL COMMENT '时间戳的偏差值，单位小时',
+  `timedeviationstr` int NULL DEFAULT NULL COMMENT '时间字符串的偏差值，单位小时',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idxCountry`(`country` ASC) USING BTREE,
   INDEX `idxLanguage`(`language` ASC) USING BTREE,
   INDEX `idxATemplate`(`atemplate` ASC) USING BTREE,
   INDEX `idxCTemplate`(`ctemplate` ASC) USING BTREE,
   INDEX `idxOrCategory`(`orcategory` ASC) USING BTREE,
-  INDEX `idxBsCategory`(`bscategory` ASC) USING BTREE
+  INDEX `idxBsCategory`(`bscategory` ASC) USING BTREE,
+  INDEX `idx_publisher_atemplate`(`publisher` ASC, `atemplate` ASC) USING BTREE,
+  INDEX `idx_publisher_ctemplate`(`publisher` ASC, `ctemplate` ASC) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_url
 -- ----------------------------
-INSERT INTO `feed_spider_url` VALUES (1, 'https://cbn.globo.com/politica/', 'br', 'pt', '[1,2]', NULL, 'Política', NULL, '2025-08-04 16:49:57', '2025-08-04 17:01:16', 'CBN');
-INSERT INTO `feed_spider_url` VALUES (2, 'https://cbn.globo.com/economia/', 'br', 'pt', '[1,2]', NULL, 'Economia', NULL, '2025-08-04 16:52:44', '2025-08-04 17:01:20', 'CBN');
-INSERT INTO `feed_spider_url` VALUES (3, 'https://cbn.globo.com/mundo/', 'br', 'pt', '[1,2]', NULL, 'Mundo', NULL, '2025-08-04 16:52:44', '2025-08-04 17:01:20', 'CBN');
-INSERT INTO `feed_spider_url` VALUES (4, 'https://cbn.globo.com/brasil/', 'br', 'pt', '[1,2]', NULL, 'Brasil', NULL, '2025-08-04 16:54:42', '2025-08-04 17:01:20', 'CBN');
-INSERT INTO `feed_spider_url` VALUES (5, 'https://cbn.globo.com/sao-paulo/', 'br', 'pt', '[1,2]', NULL, 'São Paulo', NULL, '2025-08-04 16:57:10', '2025-08-04 17:01:21', 'CBN');
-INSERT INTO `feed_spider_url` VALUES (6, 'https://cbn.globo.com/rio-de-janeiro/', 'br', 'pt', '[1,2]', NULL, 'Rio de Janeiro', NULL, '2025-08-04 16:57:10', '2025-08-04 17:01:21', 'CBN');
-INSERT INTO `feed_spider_url` VALUES (7, 'https://cbn.globo.com/belo-horizonte/', 'br', 'pt', '[1,2]', NULL, 'Belo Horizonte', '', '2025-08-04 16:57:10', '2025-08-04 17:01:26', 'CBN');
-INSERT INTO `feed_spider_url` VALUES (8, 'https://cbn.globo.com/brasilia/', 'br', 'pt', '[1,2]', NULL, 'Brasília', NULL, '2025-08-04 16:57:10', '2025-08-04 17:01:28', 'CBN');
+INSERT INTO `feed_spider_url` VALUES (1, 'https://cbn.globo.com/politica/', 'br', 'pt', '[1,2]', '1', 'Política', NULL, '2025-08-04 16:49:57', '2025-08-07 16:40:41', 'CBN', -1, -1);
+INSERT INTO `feed_spider_url` VALUES (2, 'https://cbn.globo.com/economia/', 'br', 'pt', '[1,2]', '1', 'Economia', NULL, '2025-08-04 16:52:44', '2025-08-07 15:44:33', 'CBN', 2, NULL);
+INSERT INTO `feed_spider_url` VALUES (3, 'https://cbn.globo.com/mundo/', 'br', 'pt', '[1,2]', '1', 'Mundo', NULL, '2025-08-04 16:52:44', '2025-08-06 11:10:50', 'CBN', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (4, 'https://cbn.globo.com/brasil/', 'br', 'pt', '[1,2]', '1', 'Brasil', NULL, '2025-08-04 16:54:42', '2025-08-06 11:10:50', 'CBN', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (5, 'https://cbn.globo.com/sao-paulo/', 'br', 'pt', '[1,2]', '1', 'São Paulo', NULL, '2025-08-04 16:57:10', '2025-08-06 11:10:50', 'CBN', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (6, 'https://cbn.globo.com/rio-de-janeiro/', 'br', 'pt', '[1,2]', '1', 'Rio de Janeiro', NULL, '2025-08-04 16:57:10', '2025-08-06 11:10:51', 'CBN', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (7, 'https://cbn.globo.com/belo-horizonte/', 'br', 'pt', '[1,2]', '1', 'Belo Horizonte', '', '2025-08-04 16:57:10', '2025-08-06 11:10:52', 'CBN', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (8, 'https://cbn.globo.com/brasilia/', 'br', 'pt', '[1,2]', '1', 'Brasília', NULL, '2025-08-04 16:57:10', '2025-08-06 11:10:54', 'CBN', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for feed_spider_url_group
@@ -768,7 +916,7 @@ CREATE TABLE `ma_config_item`  (
   `op` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `ns`(`ns` ASC, `name` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 679207 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 679210 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of ma_config_item
@@ -878,14 +1026,12 @@ CREATE TABLE `supply_feed_info`  (
   INDEX `idx_ts`(`ts` ASC) USING BTREE,
   INDEX `idx_country_language_sid`(`country` ASC, `language` ASC, `sid` ASC) USING BTREE,
   INDEX `idx_ctime_country`(`ctime` ASC, `country` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 196015216 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 196015217 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of supply_feed_info
 -- ----------------------------
-INSERT INTO `supply_feed_info` VALUES (196015213, 'prod', '53954da558cd7fccdf9e73c3ab1befd7', 'News', 'it', 'it', 1754384337, 'Dieta dell\'anguria: cosa succede se mangio solo anguria tutti i giorni?', '{\"country\": \"it\", \"language\": \"it\", \"category\": \"News\", \"publish_timestamp\": 1753794420, \"pub_date\": \"2025-07-29 13:07:00\", \"publisher\": \"MyPersonalTrainer\", \"publisher_icon\": \"https://read.squidapp.co/favicon.ico\", \"domain\": \"squidapp.co\", \"url\": \"https://read.squidapp.co/minews/iuLvMIZ?i=IJhB7jH7&r=19\", \"tags\": \"\", \"image_url\": \"https://d1v5b45xd905zm.cloudfront.net/images2/1/0/e/b/3/10eb3219-d227-3083-8da3-84fec21c0963-900x760.jpg\", \"platform\": \"\", \"hotnews\": \"\", \"realtime\": \"\", \"tags_mi\": \"{\\\"news_id\\\": \\\"iuLvMIZ\\\", \\\"cp_name\\\": \\\"squid\\\"}\", \"hot\": 1}', '', NULL, ' In breve: cosa succede se mangio anguria \"continuamente\"? \nPuò aiutare a sentirsi meglio (ma non per i motivi che pensi)\nIniziare a mangiare anguria ogni giorno potrebbe farti sentire più leggero e sgonfio all\"inizio, ma questo dipende spesso dalla riduzione di cibi processati, non dal frutto in sé.Una dieta a base di anguria può provocare un calo di peso temporaneo legato alla perdita di liquidi, ma non è un metodo efficace o duraturo per dimagrire.\nI rischi aumentano con l\"eccesso\nSeguita ogni giorno per molto tempo, la \"dieta dell\"anguria\" può portare a carenze nutrizionali.\nAttenzione se hai problemi di salute\nAlcune categorie di persone, ad es. con insulino-resistenza, donne in gravidanza a rischio di diabete gestazionale o chi ha disturbi alimentari, dovrebbero evitarne il consumo abbondante. \nIl nostro organismo ha bisogno di nutrienti da tutti i gruppi alimentari: anche per \"detossificarsi\", servono amminoacidi essenziali, fibre e grassi insaturi; non solo zuccheri della frutta.\n \nMangiare anguria quotidianamente può portare, almeno inizialmente, a una sensazione di benessere. Il frutto è composto per oltre il 90% da acqua e ha pochissime calorie (circa 30 per 100 grammi), il che lo rende dissetante e leggero. Inoltre, ha un buon contenuto di antiossidanti come il licopene, vitamine A e C, e modeste quantità di potassio.\nSeguendo una dieta esclusivamente a base di anguria si potrebbero avere alcuni miglioramenti, ma solo iniziali (perdita di peso, miglioramento della stipsi, riduzione del colesterolo e della pressione, ecc.), che potrebbero dipendere non tanto dall\"anguria in sé, quanto dall\"eliminazione di alimenti processati o molto salati, tipici delle diete standard.\nIn pratica, più che aggiungere anguria, è bene togliere ciò che crea problemi: sodio in eccesso, grassi saturi in eccesso e i trans, zuccheri aggiunti ecc., e tutti gli eccessi in genere, soprattutto da cibo spazzatura. \n\nQuesta dinamica spiega perché molte persone parlano di sensazioni positive all\"inizio di una dieta \"a base di anguria\".\n L’illusione del dimagrimento: funziona davvero? \nUna delle ragioni per cui alcune persone decidono di inserire l\"anguria nella dieta tutti i giorni è la convinzione che aiuti a dimagrire. Su TikTok è diventato virale il trend della \"watermelon diet\", un regime che prevede di mangiare quasi esclusivamente anguria per diversi giorni, con l\"obiettivo di perdere peso.\nI dietisti avvertono però che si tratta di un approccio fuorviante. Il dimagrimento che si osserva inizialmente è legato alla perdita di liquidi e non di massa grassa. Essendo diuretica e povera di fibre e proteine, l\"anguria può far perdere peso sulla bilancia, ma non cambia la composizione corporea.\nInoltre, questo tipo di dimagrimento (che, in realtà, è una mera \"perdita di peso\") è facilmente reversibile: non appena si torna a un\"alimentazione più completa, i chili persi vengono recuperati. \n\nLe diete monotematiche, come quella dell\"anguria, si rivelano spesso insostenibili nel lungo periodo. L\"organismo ha bisogno di nutrienti diversi – proteine, grassi, carboidrati anche complessi – che la sola anguria non può fornire.\n I rischi di mangiare anguria ogni giorno (e a lungo) \nConsumare anguria quotidianamente, se in quantità normali e in un contesto di alimentazione varia, non è dannoso; ma quando diventa un\"abitudine esclusiva o preponderante, possono emergere delle conseguenze negative.\nEcco i principali effetti collaterali legati all\"eccesso di anguria nella dieta:\n Squilibri elettrolitici: l\"uso eccessivo può interferire con il bilancio di sodio, potassio e magnesio. Disidratazione paradossale: anche se ricca d\"acqua, l\"anguria, se consumata in modo esclusivo, può non garantire un apporto sufficiente di sodio, causando una riduzione dell\"idratazione intracellulare. \n Quando evitare l’anguria quotidiana: categorie a rischio \nNon tutte le persone reagiscono allo stesso modo a una dieta ricca di anguria. Alcune condizioni rendono il consumo quotidiano potenzialmente dannoso: \n\nOgni cellula del nostro corpo ha bisogno di nutrienti da più fonti alimentari per funzionare in modo efficiente.\n Conclusioni \nL\"anguria è un frutto salutare, idratante e ricco di micronutrienti. Inserirla nella dieta quotidiana può essere benefico, ma solo se fa parte di un\"alimentazione varia ed equilibrata.\nIl problema nasce quando diventa il perno di regimi estremi, come la \"dieta dell\"anguria\". In questi casi, più che benefici, emergono carenze e rischi anche gravi, soprattutto per chi ha condizioni preesistenti.\nLa chiave, come sempre, è la moderazione. L\"anguria va bene tutti i giorni se consumata come snack o dessert naturale, ma non può sostituire pasti completi o essere vista come strategia per dimagrire in fretta.', NULL, '2025-08-05 16:58:57', '2025-08-05 16:58:57', 'squidapp.co');
-INSERT INTO `supply_feed_info` VALUES (196015214, 'prod', '4e6485b600a3efe3eac2406932cfbfad', 'News', 'it', 'it', 1754384392, 'I 1.600 morti in Cile e l\'incubo Fukushima: quali sono i 10 terremoti più forti di sempre', '{\"country\": \"it\", \"language\": \"it\", \"category\": \"News\", \"publish_timestamp\": 1753837574, \"pub_date\": \"2025-07-30 09:06:14\", \"publisher\": \"Quotidiano.net\", \"publisher_icon\": \"https://www.quotidiano.net/favicon/qn/favicon.ico\", \"domain\": \"www.quotidiano.net\", \"url\": \"https://www.quotidiano.net/esteri/sch-terremoti-piu-forti-della-storia-thvdx470\", \"tags\": \"\", \"image_url\": \"https://www.quotidiano.net/image-service/view/acePublic/alias/contentid/OGJiYzc1M2UtZDYyMS00/0/un-immagine-dello-tsnunami-scatenato-dal-terremoto-a-fukushima-l-11-marzo-2011-ansa.webp\", \"platform\": \"\", \"hotnews\": \"\", \"realtime\": \"\", \"tags_mi\": \"{\\\"news_id\\\": \\\"ixEVvTC\\\", \\\"cp_name\\\": \\\"squid\\\"}\", \"hot\": 1}', 'Il sisma al largo della Russia riaccende l\"incubo dei disastri naturali: dalla devastante scossa del 1906 a oggi una scia di morte e devastazione', NULL, 'Roma, 30 luglio 2025 – Imprevedibili, improvvisi e devastanti. I terremoti rappresentano, da sempre, una delle catastrofi naturali più potenti e distruttive. Il sisma di magnitudo 8.8 a circa 136 chilometri a sud-est della penisola di Kamchatka, al largo della Russia, nel mare di Bering che si è verificato in queste ore ha riacceso le paure di tutti. Secondo l\"Usgs, questo evento è stato il più forte a livello mondiale dal disastro di Fukushima nel marzo 2011 ed è stato superato solo da pochi terremoti dall\"inizio delle misurazioni, nella prima metà del 1800. Già, perché con l’avvento della sismologia moderna, oggi siamo in grado di misurare, con precisione, l’intensità di questi eventi. La maggior parte dei terremoti più devastanti si verifica lungo le cosiddette ‘zone di subduzione’, dove una placca tettonica scivola sotto un’altra. Ecco un elenco dei 10 terremoti più potenti e distruttivi mai registrati.', NULL, '2025-08-05 16:59:52', '2025-08-05 16:59:52', 'www.quotidiano.net');
-INSERT INTO `supply_feed_info` VALUES (196015215, 'prod', 'a82c16f8f0ee1848cc488f8a7a717084', 'News', 'pl', 'pl', 1754384398, 'Oczy całego świata skierowane na Rosję. Oto skutki potężnego trzęsienia ziemi', '{\"country\": \"pl\", \"language\": \"pl\", \"category\": \"News\", \"publish_timestamp\": 1753867860, \"pub_date\": \"2025-07-30 09:31:00\", \"publisher\": \"Wprost\", \"publisher_icon\": \"https://read.squidapp.co/favicon.ico\", \"domain\": \"squidapp.co\", \"url\": \"https://read.squidapp.co/minews/pcATs0o?i=XPCCyTEz\", \"tags\": \"\", \"image_url\": \"https://d1v5b45xd905zm.cloudfront.net/images2/8/c/9/7/a/8c97aa34-1276-3005-b872-ad78af44034b-1280x960.jpg\", \"platform\": \"\", \"hotnews\": \"\", \"realtime\": \"\", \"tags_mi\": \"{\\\"news_id\\\": \\\"pcATs0o\\\", \\\"cp_name\\\": \\\"squid\\\"}\", \"hot\": 1}', '', NULL, 'Daleko na wschodzie – u wybrzeży Kamczatki (półwysep w Rosji, który oddziela Morze Ochockie i Beringa) – doszło do potężnego trzęsienia ziemi. Nie obyło się bez uszkodzeń infrastruktury, ewakuacji, podtopień czy pilnie wydanych komunikatów zawierających ostrzeżenia. \n\nTrzęsienie ziemi doprowadziło do powstania fal na Pacyfiku o wysokości czterech metrów. Epicentrum zjawisko było oddalone o około 125 kilometrów od stolicy Kraju Kamczackiego (Pietropawłowska), a hipocentrum znajdowało się na głębokości ok. 19,5 km. W skali Richtera mowa o magnitudzie 8,8!\nKilka państw ogłosiło ostrzeżenia (najpierw Rosja, potem m.in. Japonia czy Stany Zjednoczone). Prezydent USA Donald Trump opublikował wpis na TRUTH Social, prosząc obywateli na Hawajach o ostrożność.\nWedług najnowszych doniesień nawet wtórne wstrząsy miały dużą siłę i sięgały aż 7 w skali Richtera – podała agencja Reutera. Trzęsienie z 30 lipca jest znacznie silniejsze niż to, które miało miejsce w 1952 roku. Władze Kamczatki same przyznały, że lipcowe zjawisko jest „najsilniejszym od dekad”. Według magazynu „Time” jest to szóste największe trzęsienie ziemi, jakie zarejestrowano w historii.\n30 wstrząsów wtórnych. Na wyspie Sachalin awaria sieci energetycznej, podtopienia w Severo-Kurilsku\nNEXTA informowała, że wskutek trzęsienia ziemi na japońskie wybrzeże woda wyrzuciła wieloryby. Fale tsunami, które zostały wzbudzone, uderzyły w miasteczko Siewiero-Kurilsk. Miały wysokość od trzech do pięciu metrów.\nOsoby, które znajdują się na wybrzeżu Kamczatki, są proszone przez rosyjskiego ministerstwo ds. sytuacji nadzwyczajnych o opuszczenie niebezpiecznego miejsca, a te, które planowały się tam wybrać, muszą zmienić swoje plany.\nWedług najnowszych doniesień, które pojawiły się w mediach w środę przed południem – w związku ze zjawiskiem na wyspie Sachalin (największa wyspa w Rosji) doszło do uszkodzenia sieci energetycznej – informuje RIA Nowosti. Odwołano też loty na Maui (druga największa wyspa – w tym przypadku na Hawajach) – co ogłosił gubernator Josh Green. Władze stanu podjęły też decyzję o zawieszeniu pracy na morskich portach cywilnych – do odwołania.\nZ ostatniej chwili: Ewakuowano pracowników Fukushimy \nReuters informuje – powołując się na najnowsze ustalenia Rosyjskiej Akademii Nauk, że trzęsienie ziemi wygenerowało bagatela 30 wstrząsów wtórnych!\nW Waszyngtonie fale uderzyły w La Push i Westport – jak przekazało National Weather Service Seattle (miejscowy odpowiednik Instytutu Meteorologii i Gospodarki Wodnej). W Fukushimie ewakuowano zaś wszystkich pracowników elektrowni jądrowej.\nCzytaj też:\nPotężne trzęsienie ziemi w Rosji. Trump wydał oświadczenieCzytaj też:\nKolumbijczyk od Kremla. Rosja testuje odporność Polski', NULL, '2025-08-05 16:59:58', '2025-08-05 16:59:58', 'squidapp.co');
+INSERT INTO `supply_feed_info` VALUES (196015216, 'prod', '2f40b59bb9712167e4731a1e995f3d93', 'News_Entertainment', 'es', 'es', 1754535742, 'Ana María Aldón, en uno de sus peores momentos: \"No está siendo un año fácil\"', '{\"country\": \"es\", \"language\": \"es\", \"category\": \"News_Entertainment\", \"publish_timestamp\": 1753668000, \"pub_date\": \"2025-07-28 10:00:00\", \"publisher\": \"mundodeportivo.com\", \"publisher_icon\": \"https://static.mundodeportivo.com/images/favicon.ico\", \"domain\": \"mundodeportivo.com\", \"url\": \"https://www.mundodeportivo.com/elotromundo/television/20250728/1002507229/ana-maria-aldon-peores-momentos-esta-siendo-ano-facil-dct.html?facet=amp\", \"tags\": \"\", \"image_url\": \"https://www.mundodeportivo.com/files/og_thumbnail/uploads/2025/07/28/68879d3a86f10.jpeg\", \"platform\": \"\", \"hotnews\": \"\", \"realtime\": \"\", \"tags_mi\": \"{\\\"news_id\\\": \\\"5488c44a250728es_es\\\", \\\"cp_name\\\": \\\"opera\\\"}\", \"hot\": 1}', 'Ana María Aldón tomó la decisión de abandonar Telecinco para poder dedicarse por completo al cuidado de su madre. Tal como explicó la propia colaboradora, el trabajo', NULL, 'Ana María Aldón tomó la decisión de abandonar Telecinco para poder dedicarse por completo al cuidado de su madre. Tal como explicó la propia colaboradora, el trabajo en \"Fiesta\" durante los fines de semana le impedían ofrecer la atención que, según ella, su madre necesita. Por ello, priorizó poder estar en Andalucía los sábados y los domingos.\n\nSin embargo, este no es el único revés que atraviesa Ana María Aldón. En los últimos meses, su entorno más cercano se ha visto golpeado por la pérdida de dos familiares y, ahora, permanece preocupada por otro ser querido que lleva varios días ingresado en el hospital.', NULL, '2025-08-07 11:02:22', '2025-08-07 11:02:22', 'mundodeportivo.com');
 
 -- ----------------------------
 -- Table structure for test_supply_feed_info
@@ -950,7 +1096,7 @@ CREATE TABLE `title_ids_duplicates`  (
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `batch_copy_data`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `batch_copy_data`()
+CREATE PROCEDURE `batch_copy_data`()
 BEGIN
     DECLARE done INT DEFAULT 0;
     DECLARE batch_size INT DEFAULT 10000;  -- 每批复制的数据量
@@ -1006,7 +1152,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `remove_duplicate_titles_batch`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `remove_duplicate_titles_batch`()
+CREATE PROCEDURE `remove_duplicate_titles_batch`()
 BEGIN
 
     DECLARE current_id BIGINT;          -- 当前要删除的 id
