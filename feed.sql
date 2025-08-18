@@ -11,7 +11,7 @@
  Target Server Version : 80042 (8.0.42)
  File Encoding         : 65001
 
- Date: 17/08/2025 19:21:23
+ Date: 18/08/2025 19:16:02
 */
 
 SET NAMES utf8mb4;
@@ -607,7 +607,7 @@ CREATE TABLE `feed_spider_a_template`  (
   `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_a_template
@@ -616,6 +616,9 @@ INSERT INTO `feed_spider_a_template` VALUES (1, 'div[class=bstn-hl-wrapper]', 'a
 INSERT INTO `feed_spider_a_template` VALUES (2, 'div[class=bastian-feed-item]', 'a', 'href', '2025-08-04 16:58:54', '2025-08-04 16:59:02');
 INSERT INTO `feed_spider_a_template` VALUES (3, 'div[class=element__headline]', 'a', 'href', '2025-08-12 14:57:17', '2025-08-12 14:57:17');
 INSERT INTO `feed_spider_a_template` VALUES (6, '2', '2', '2', '2025-08-14 18:22:18', '2025-08-14 18:22:18');
+INSERT INTO `feed_spider_a_template` VALUES (7, 'article', 'a', 'href', '2025-08-18 14:55:02', '2025-08-18 14:55:02');
+INSERT INTO `feed_spider_a_template` VALUES (8, 'li.rubric-page__item', 'a', 'href', '2025-08-18 16:10:44', '2025-08-18 16:15:01');
+INSERT INTO `feed_spider_a_template` VALUES (9, 'div.list_item>div.box_info', 'a', 'href', '2025-08-18 16:18:04', '2025-08-18 16:18:04');
 
 -- ----------------------------
 -- Table structure for feed_spider_c_template
@@ -635,13 +638,14 @@ CREATE TABLE `feed_spider_c_template`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_createdtime`(`createdtime` ASC) USING BTREE,
   INDEX `idx_updatedtime`(`updatedtime` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_c_template
 -- ----------------------------
 INSERT INTO `feed_spider_c_template` VALUES (1, '1', '1', '2', '2', 'div.mc-column.content-text.active-extra-styles', '2025-08-06 10:22:24', '2025-08-06 11:10:10', NULL, NULL);
 INSERT INTO `feed_spider_c_template` VALUES (2, '2', '1', '3', '3', 'div.block_list__container', '2025-08-12 15:14:42', '2025-08-12 15:18:51', 'div.tags.gl_plugin', NULL);
+INSERT INTO `feed_spider_c_template` VALUES (6, '4', '1', '6', '5', 'article>div[class=content]', '2025-08-18 15:05:37', '2025-08-18 15:07:16', 'ul[class=GFWK_tagsList]', '3');
 
 -- ----------------------------
 -- Table structure for feed_spider_content_template
@@ -655,13 +659,14 @@ CREATE TABLE `feed_spider_content_template`  (
   `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `target_attr` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '提取的目标属性名，例如 datetime、href、content',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_content_template
 -- ----------------------------
 INSERT INTO `feed_spider_content_template` VALUES (2, NULL, 'meta[property=og:description]', '2025-08-06 11:07:57', '2025-08-06 11:07:57', 'content');
 INSERT INTO `feed_spider_content_template` VALUES (3, NULL, 'meta[name=description]', '2025-08-12 15:16:29', '2025-08-12 15:16:29', 'content');
+INSERT INTO `feed_spider_content_template` VALUES (5, '', 'div[class=chapo]', '2025-08-18 14:59:05', '2025-08-18 14:59:05', '');
 
 -- ----------------------------
 -- Table structure for feed_spider_fulltext_filter_template
@@ -675,11 +680,12 @@ CREATE TABLE `feed_spider_fulltext_filter_template`  (
   `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `target_attr` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '提取的目标属性名，例如 datetime、href、content',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_fulltext_filter_template
 -- ----------------------------
+INSERT INTO `feed_spider_fulltext_filter_template` VALUES (3, '', 'div[id=poool-widget]', '2025-08-18 15:00:11', '2025-08-18 15:00:11', '');
 
 -- ----------------------------
 -- Table structure for feed_spider_img_template
@@ -722,15 +728,19 @@ CREATE TABLE `feed_spider_task`  (
   INDEX `idx_country_status`(`country` ASC, `status` ASC) USING BTREE,
   INDEX `idx_data_status`(`data_status` ASC) USING BTREE,
   INDEX `idx_publisher_data_status`(`publisher` ASC, `data_status` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_task
 -- ----------------------------
-INSERT INTO `feed_spider_task` VALUES (97, 'pl', 'pl', NULL, 2, '[9]', 'PolitykaSuperExpress', '2025-08-15 18:11:45', '2025-08-15 18:42:32', 5, 'test');
-INSERT INTO `feed_spider_task` VALUES (98, 'pl', 'pl', NULL, 2, '[10]', 'PolitykaSuperExpress', '2025-08-15 18:11:45', '2025-08-15 18:42:37', 30, 'test');
-INSERT INTO `feed_spider_task` VALUES (99, 'pl', 'pl', NULL, 0, '[11]', 'PolitykaSuperExpress', '2025-08-15 18:11:45', '2025-08-15 18:11:45', 30, 'test');
-INSERT INTO `feed_spider_task` VALUES (100, 'pl', 'pl', NULL, 0, '[12]', 'PolitykaSuperExpress', '2025-08-15 18:11:45', '2025-08-15 18:11:45', 30, 'test');
+INSERT INTO `feed_spider_task` VALUES (129, 'br', 'pt', '', 3, '[1]', 'CBN', '2025-08-18 17:05:38', '2025-08-18 17:55:30', 30, 'test');
+INSERT INTO `feed_spider_task` VALUES (130, 'br', 'pt', '', 0, '[2]', 'CBN', '2025-08-18 17:05:38', '2025-08-18 17:05:38', 30, 'test');
+INSERT INTO `feed_spider_task` VALUES (131, 'br', 'pt', '', 0, '[3]', 'CBN', '2025-08-18 17:05:38', '2025-08-18 17:05:38', 30, 'test');
+INSERT INTO `feed_spider_task` VALUES (132, 'br', 'pt', '', 0, '[4]', 'CBN', '2025-08-18 17:05:38', '2025-08-18 17:05:38', 30, 'test');
+INSERT INTO `feed_spider_task` VALUES (133, 'br', 'pt', '', 0, '[5]', 'CBN', '2025-08-18 17:05:38', '2025-08-18 17:05:38', 30, 'test');
+INSERT INTO `feed_spider_task` VALUES (134, 'br', 'pt', '', 0, '[6]', 'CBN', '2025-08-18 17:05:38', '2025-08-18 17:05:38', 30, 'test');
+INSERT INTO `feed_spider_task` VALUES (135, 'br', 'pt', '', 0, '[7]', 'CBN', '2025-08-18 17:05:38', '2025-08-18 17:05:38', 30, 'test');
+INSERT INTO `feed_spider_task` VALUES (136, 'br', 'pt', '', 0, '[8]', 'CBN', '2025-08-18 17:05:38', '2025-08-18 17:05:38', 30, 'test');
 
 -- ----------------------------
 -- Table structure for feed_spider_task_resource_monitor
@@ -762,7 +772,7 @@ CREATE TABLE `feed_spider_task_resource_monitor`  (
   INDEX `idx_taskid`(`taskid` ASC) USING BTREE,
   INDEX `idx_createdtime`(`createdtime` ASC) USING BTREE,
   INDEX `idx_status`(`status` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '任务资源监控表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '任务资源监控表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of feed_spider_task_resource_monitor
@@ -882,6 +892,27 @@ INSERT INTO `feed_spider_task_resource_monitor` VALUES (112, 97, 1755253923745, 
 INSERT INTO `feed_spider_task_resource_monitor` VALUES (113, 97, 1755254223753, 1755254256047, 32294, 1.4031818214994856, 12.38375718975091, 112589952, 112589952, 1, 21, 21, 1455, 0, 0, 'SUCCESS', NULL, 484375000, 31602160349000, '21596', '2025-08-15 18:37:04');
 INSERT INTO `feed_spider_task_resource_monitor` VALUES (114, 98, 1755254505731, 1755254557754, 52023, 0.9010538321949235, 12.817651880017156, 131095512, 131095512, 1, 38, 38, 1321, 0, 0, 'SUCCESS', NULL, 1718750000, 31903867363200, '21596', '2025-08-15 18:41:46');
 INSERT INTO `feed_spider_task_resource_monitor` VALUES (115, 97, 1755254523747, 1755254552373, 28626, 1.0917047844271348, 14.170389642664604, 119830024, 119830024, 1, 21, 21, 1288, 0, 0, 'SUCCESS', NULL, 421875000, 31898486196600, '21596', '2025-08-15 18:42:04');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (116, 101, 1755499418171, 1755499451395, 33224, 5.07942775681607, 19.70697590379038, 70669560, 70669560, 1, 41, 41, 1421, 0, 0, 'SUCCESS', NULL, 1703125000, 18280285500600, '24204', '2025-08-18 14:43:40');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (117, 101, 1755499419616, NULL, NULL, 0, 0, 76408616, 76408616, 0, 0, 0, 0, 0, 0, 'RUNNING', NULL, 31250000, 18248507461900, '24204', '2025-08-18 14:43:40');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (118, 105, 1755500899276, 1755500899296, 20, 0, 19.983795322444653, 108990952, 108990952, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 93750000, 19728195070400, '24204', '2025-08-18 15:08:19');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (119, 105, 1755500915893, 1755500937039, 21146, 0, 13.133633755861906, 110793232, 110793232, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 0, 19765929677600, '24204', '2025-08-18 15:08:36');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (120, 105, 1755501044068, 1755501065173, 21105, 0.14812017673898561, 19.175495004063347, 111874624, 111874624, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 62500000, 19894064157600, '24204', '2025-08-18 15:10:44');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (121, 105, 1755501199293, 1755501220426, 21133, 0.07410192954927289, 22.68734927442112, 112830232, 112830232, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 46875000, 20049272899500, '24204', '2025-08-18 15:13:19');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (122, 106, 1755501465063, 1755501487144, 22081, 3.326162500644455, 15.670440653716167, 86061840, 86061840, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 750000000, 20316033894600, '29200', '2025-08-18 15:17:46');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (123, 107, 1755501865438, 1755501896304, 30866, 2.5312410303955346, 13.532018776661214, 63716208, 63716208, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 796875000, 20725195298800, '25732', '2025-08-18 15:24:26');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (124, 108, 1755501940617, 1755501970689, 30072, 0, 13.448488099866307, 68106792, 68106792, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 15625000, 20799585263300, '25732', '2025-08-18 15:25:41');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (125, 109, 1755502446589, 1755502477078, 30489, 0, 14.850474270399816, 88398016, 88398016, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 375000000, 21305967422300, '29172', '2025-08-18 15:34:07');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (126, 110, 1755502822422, 1755502852510, 30088, 0, 18.861366985832884, 91382176, 91382176, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 31250000, 21681400854800, '29172', '2025-08-18 15:40:22');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (127, 111, 1755504762261, 1755504764103, 1842, 0, 25.159475310390057, 113934752, 113934752, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 625000000, 23592991763400, '25964', '2025-08-18 16:12:43');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (128, 111, 1755504819701, 1755504821341, 1640, 0, 38.5461184684185, 126543504, 126543504, 1, 28, 28, 42, 0, 0, 'SUCCESS', NULL, 218750000, 23650236789800, '25964', '2025-08-18 16:13:40');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (129, 111, 1755504911063, 1755504917671, 6608, 0, 14.060257830372159, 140099736, 140099736, 1, 31, 31, 193, 0, 0, 'SUCCESS', NULL, 78125000, 23746559956200, '25964', '2025-08-18 16:15:11');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (130, 112, 1755505300929, 1755505304873, 3944, 0, 18.493940804219722, 149625680, 149625680, 1, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 78125000, 24133762168500, '25964', '2025-08-18 16:21:41');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (131, 117, 1755506959782, 1755506959865, 83, 0, 36.61776160758543, 169198432, 169198432, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 31250000, 25788755299800, '25964', '2025-08-18 16:49:20');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (132, 117, 1755506988305, 1755507018118, 29813, 4.769865236173501, 62.65986817019624, 163664664, 163664664, 1, 10, 10, 2601, 0, 0, 'SUCCESS', NULL, 1437500000, 25847006978600, '25964', '2025-08-18 16:49:48');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (133, 127, 1755507109159, 1755507109173, 14, 0, 54.503524084600755, 168571256, 168571256, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 78125000, 25938063882700, '25964', '2025-08-18 16:51:49');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (134, 125, 1755507287665, 1755507520558, 232893, 0.523309688901276, 46.70976003112628, 127210024, 127210024, 1, 21, 21, 10569, 0, 0, 'SUCCESS', NULL, 1328125000, 26349449604900, '25964', '2025-08-18 16:54:48');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (135, 129, 1755507941100, 1755507970359, 29259, 4.380594666862844, 47.83151940782104, 128383032, 128383032, 1, 10, 10, 2637, 0, 0, 'SUCCESS', NULL, 1375000000, 26799248761900, '25964', '2025-08-18 17:05:41');
+INSERT INTO `feed_spider_task_resource_monitor` VALUES (136, 117, 1755508759784, 1755508759855, 71, 23.525922178507923, 50.439233974261896, 134184080, 134184080, 0, 0, 0, 0, 0, 0, 'SUCCESS', NULL, 156250000, 27588741381300, '25964', '2025-08-18 17:19:20');
 
 -- ----------------------------
 -- Table structure for feed_spider_time_analysis_tem
@@ -891,12 +922,14 @@ CREATE TABLE `feed_spider_time_analysis_tem`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `value` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '时间格式模板，如 %Y-%m-%d %H:%M:%S',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of feed_spider_time_analysis_tem
 -- ----------------------------
 INSERT INTO `feed_spider_time_analysis_tem` VALUES (1, '%Y-%m-%dT%H:%M:%S.%f%z');
+INSERT INTO `feed_spider_time_analysis_tem` VALUES (4, 'yyyy-MM-dd\'T\'HH:mm:ssXXX');
+INSERT INTO `feed_spider_time_analysis_tem` VALUES (5, 'yyyy-MM-dd\'T\'HH:mm:ssX');
 
 -- ----------------------------
 -- Table structure for feed_spider_time_template
@@ -914,14 +947,14 @@ CREATE TABLE `feed_spider_time_template`  (
   INDEX `idx_fathertag_prefix`(`fathertag`(100) ASC) USING BTREE,
   INDEX `idx_childtag_prefix`(`childtag`(100) ASC) USING BTREE,
   INDEX `idx_target_attr_prefix`(`target_attr` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_time_template
 -- ----------------------------
 INSERT INTO `feed_spider_time_template` VALUES (1, NULL, 'time[itemprop=datePublished]', '2025-08-06 10:12:41', '2025-08-07 15:35:05', 'datetime', NULL);
 INSERT INTO `feed_spider_time_template` VALUES (2, NULL, NULL, '2025-08-12 15:13:09', '2025-08-12 16:27:03', NULL, '\"datePublished\"\\s*:\\s*\"([^\"]+)\"');
-INSERT INTO `feed_spider_time_template` VALUES (3, '23', '2323', '2025-08-14 14:15:59', '2025-08-14 14:15:59', '232323', '');
+INSERT INTO `feed_spider_time_template` VALUES (4, '', 'meta[property=article:published_time]', '2025-08-18 14:56:26', '2025-08-18 14:56:26', 'content', '');
 
 -- ----------------------------
 -- Table structure for feed_spider_title_template
@@ -935,13 +968,14 @@ CREATE TABLE `feed_spider_title_template`  (
   `updatedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `target_attr` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '提取的目标属性名，例如 datetime、href、content',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_title_template
 -- ----------------------------
 INSERT INTO `feed_spider_title_template` VALUES (2, NULL, 'meta[property=og:title]', '2025-08-06 10:43:19', '2025-08-06 10:43:19', 'content');
 INSERT INTO `feed_spider_title_template` VALUES (3, NULL, 'div[class=title]', '2025-08-12 15:15:36', '2025-08-12 15:15:36', NULL);
+INSERT INTO `feed_spider_title_template` VALUES (6, '', 'title', '2025-08-18 14:56:42', '2025-08-18 14:56:42', '');
 
 -- ----------------------------
 -- Table structure for feed_spider_url
@@ -970,7 +1004,7 @@ CREATE TABLE `feed_spider_url`  (
   INDEX `idxBsCategory`(`bscategory` ASC) USING BTREE,
   INDEX `idx_publisher_atemplate`(`publisher` ASC, `atemplate` ASC) USING BTREE,
   INDEX `idx_publisher_ctemplate`(`publisher` ASC, `ctemplate` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_url
@@ -987,6 +1021,10 @@ INSERT INTO `feed_spider_url` VALUES (9, 'https://polityka.se.pl/', 'pl', 'pl', 
 INSERT INTO `feed_spider_url` VALUES (10, 'https://www.se.pl/wiadomosci/lekkie/', 'pl', 'pl', '[3]', '2', 'Wiadomości_Polityka - Lekkie', NULL, '2025-08-12 14:51:20', '2025-08-12 16:01:32', 'PolitykaSuperExpress', NULL, NULL);
 INSERT INTO `feed_spider_url` VALUES (11, 'https://www.se.pl/wiadomosci/superopinie/', 'pl', 'pl', '[3]', '2', 'Wiadomości_Super Opinie', NULL, '2025-08-12 14:52:53', '2025-08-12 16:01:33', 'PolitykaSuperExpress', NULL, NULL);
 INSERT INTO `feed_spider_url` VALUES (12, 'https://www.se.pl/wiadomosci/polska/', 'pl', 'pl', '[3]', '2', 'Wiadomości_Polska', NULL, '2025-08-12 14:53:40', '2025-08-12 16:01:35', 'PolitykaSuperExpress', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (13, 'https://www.lejsl.com/fil-info+saone-et-loire/saone-et-loire', 'fr', 'fr', '[7]', '6', 'L\'actualité en Saône-et-Loire', NULL, '2025-08-18 15:04:13', '2025-08-18 15:07:52', 'Lejsl', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (14, 'https://lenta.ru/rubrics/culture/kino/', 'ru', 'ru', '[8]', NULL, 'Культура_Кино', NULL, '2025-08-18 16:11:34', '2025-08-18 16:11:34', 'Lenta', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (15, 'https://aif.ru/moscow', 'ru', 'ru', '[9]', NULL, 'Москва', NULL, '2025-08-18 16:19:32', '2025-08-18 16:19:32', 'AiF', NULL, NULL);
+INSERT INTO `feed_spider_url` VALUES (16, '1', '', '', '1', '1', '1', '1', '2025-08-18 17:40:52', '2025-08-18 17:40:52', '1', 0, 0);
 
 -- ----------------------------
 -- Table structure for feed_spider_url_group
@@ -1011,14 +1049,17 @@ CREATE TABLE `feed_spider_url_group`  (
   INDEX `idx_publishername`(`publishername` ASC) USING BTREE,
   INDEX `idx_domain`(`domain` ASC) USING BTREE,
   INDEX `idx_server`(`server` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of feed_spider_url_group
 -- ----------------------------
-INSERT INTO `feed_spider_url_group` VALUES (1, 'br', 'pt', 'CBN', '[[1,2],[3,4],[5,6],[7,8]]', 'https://s2-cbn.glbimg.com/8omCOX83cUkXOwx1pHqZXi2TAew=/192x192/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_d975fad146a14bbfad9e763717b09688/internal_photos/bs/2021/z/M/JpDF4cRs6ZHPip8YMKNw/cbn.png', 'cbn.globo.com', '', 2, '2025-08-04 16:50:52', '2025-08-15 10:21:07', NULL);
+INSERT INTO `feed_spider_url_group` VALUES (1, 'br', 'pt', 'CBN', '[[1],[2],[3],[4],[5],[6],[7],[8]]', 'https://s2-cbn.glbimg.com/8omCOX83cUkXOwx1pHqZXi2TAew=/192x192/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_d975fad146a14bbfad9e763717b09688/internal_photos/bs/2021/z/M/JpDF4cRs6ZHPip8YMKNw/cbn.png', 'cbn.globo.com', '', 1, '2025-08-04 16:50:52', '2025-08-18 16:49:00', NULL);
 INSERT INTO `feed_spider_url_group` VALUES (2, 'pl', 'pl', 'PolitykaSuperExpress', '[[9],[10],[11],[12]]', 'https://polityka.se.pl/favicon_192x192.ico', 'se.pl', NULL, 1, '2025-08-12 14:49:25', '2025-08-15 16:09:40', NULL);
 INSERT INTO `feed_spider_url_group` VALUES (3, 'br', 'pt', 'CBN', '[[1,2,3,4,5],[6,7,8]]', '', '', '', 5, '2025-08-15 11:07:39', '2025-08-15 11:08:52', '');
+INSERT INTO `feed_spider_url_group` VALUES (4, 'fr', 'fr', 'Lejsl', '[[13]]', 'https://cdn-files.prsmedia.fr/files/REDAC/images/favicons/2022/favicon_JSL-V2.png', 'lejsl.com', '', 1, '2025-08-18 14:54:14', '2025-08-18 15:07:23', '');
+INSERT INTO `feed_spider_url_group` VALUES (5, 'ru', 'ru', 'Lenta', '[[14]]', 'https://icdn.lenta.ru/images/icons/icon-256x256.png', 'lenta.ru', '', 1, '2025-08-18 16:09:55', '2025-08-18 16:11:39', '');
+INSERT INTO `feed_spider_url_group` VALUES (6, 'ru', 'ru', 'AiF', '[[15]]', 'https://aif.ru/favicon.ico', 'aif.ru', '', 1, '2025-08-18 16:18:46', '2025-08-18 16:19:37', '');
 
 -- ----------------------------
 -- Table structure for id_duplicates
@@ -1069,7 +1110,7 @@ CREATE TABLE `ma_config_item`  (
   `op` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `ns`(`ns` ASC, `name` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 682366 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 682369 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of ma_config_item
