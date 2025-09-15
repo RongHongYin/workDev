@@ -1,0 +1,543 @@
+MNfVRo<OJ9Lt
+
+
+/molydata@outlook.com
+
+张中毅群 机器人：https://open.feishu.cn/open-apis/bot/v2/hook/05868a68-92e2-4e6e-b892-b4ec0fb59319
+
+ rimraf
+
+molydata_sub@outlook.com
+Moly_Data-2024
+
+puruxia的ads.txt:  google.com, pub-7916042171776163, DIRECT, f08c47fec0942fa0
+
+
+
+推特账号： DownDust58578
+推特密码： zbsmm123
+
+涛哥推特账密：
+
+
+
+AWS 账密：
+账户ID：480008915785 
+URL: https://480008915785.signin.aws.amazon.com/console 
+用户名: devops
+密码：6iESf5_=
+身份验证器密钥：FGKYZN23SCCM7G342WMUPS3OE6HQCWYYFKD4J323PHLM3HNNLUI4ERV5GA4CS4AP
+
+
+
+新加坡
+driver-class-name: com.mysql.cj.jdbc.Driver
+jdbc-url: jdbc:mysql://traffic.c0jcpfwom9ih.ap-southeast-1.rds.amazonaws.com/feed?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+username: feed_x
+password: ace9f8aec6f1
+
+username: feed_x1
+password: eP4bC0eW
+
+欧洲
+driver-class-name: com.mysql.cj.jdbc.Driver
+jdbc-url: jdbc:mysql://feed.cluster-ro-cpmi8ci660oi.eu-central-1.rds.amazonaws.com/feed?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+username: feed_a
+password: p0fywtsth6ug
+
+
+url: jdbc:mysql://feed.cluster-cpmi8ci660oi.eu-central-1.rds.amazonaws.com/feed?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+username: admin
+password: orJ7NlSLyQb2isl0l352
+
+
+
+用户名：ronghongyin@accessads.net
+密码：UkG@hs^!
+登录地址：https://qiye.aliyun.com/
+
+更新数据库信息：
+username: feed_x
+password: ace9f8aec6f1
+
+QQ 邮箱 授权码： znjturjdmvidecah
+
+欧洲数据库：
+url: jdbc:mysql://feed.cluster-cpmi8ci660oi.eu-central-1.rds.amazonaws.com/feed?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+username: admin
+password: orJ7NlSLyQb2isl0l352
+
+
+
+设置为当前用户只读权限：
+chmod u+r,og-wrx ~/.ssh/relay_traffic_sgp_aws.pem
+
+relay_traffic_sgp_aws.pem
+
+git pull --rebase
+
+ssh root@115.29.151.149
+ssh root@120.26.171.126
+香港虚拟主机IP：103.226.124.241
+阿里云虚拟服务器（青岛）：115.29.151.149
+阿里云体验虚拟服务器（杭州）：120.26.171.126
+
+./wrk -t50 -c200 -d 2m --latency "https://api-eu.molitechnews.com/feed/m/list?token=440e8499&count=10&client_info=ABC&user_ip=192.168.127.12&model=oppo&os_version=9.0&language=en&country=gb"
+wrk -t50 -c200 -d 2m --latency "http://api-eu.molitechnews.com/feed/m/list?country=es&user_ip=80.59.194&client_info=05e16ce576e8f44766a55cd78cbcf677&os_version=14.20.1-gn&count=10&language=es&model=willow&token=440e8499"
+
+nohup python3 ES-MundoDeportivo-Entertainment.py > ES-MundoDeportivo-Entertainment.log 2>&1 &
+
+部署代码：
+shell/pkg.sh prod_game_coolemon deploy
+shell/pkg_new.sh prod_game_coolemon deploy
+shell/pkg_new.sh prod_game_coolemon deploy --dir Anycolor-X
+shell/pkg.sh prod_imelynews deploy
+shell/pkg.sh prod_molitech_sgp deploy
+shell/pkg.sh prod_molitech_fr deploy
+shell/pkg.sh prod_imely deploy
+shell/pkg.sh prod_h5_ca deploy
+
+
+shell/pkg.sh prod_minigame deploy
+
+shell/pkg.sh prod_puruxia_sgp deploy
+shell/pkg.sh prod_puruxia_fr deploy
+
+shell/pkg.sh prod deploy
+shell/pkg.sh prod_fr deploy
+
+
+
+
+域名：
+molitechnews.com
+puruxia.com
+infyl.com
+flowika.com
+boostsr.com
+
+
+eu.molitechnews.com
+eu.puruxia.com
+eu.infyl.com
+eu.flowika.com
+eu.boostsr.com
+eu.aaccgames.com
+
+
+
+
+
+
+- 
+
+
+
+
+api-eu.molitechnews.com
+api-eu.puruxia.com
+api-eu.infyl.com
+api-eu.flowika.com
+api-eu.boostsr.com
+api.aaccgames.com
+api.XXXX.com
+api.XXXX.com
+api.XXXX.com
+
+
+测试：
+新加坡：https://www.flowika.com/posts/?fid=fde6f9d973886aea6a05ee49ebc19661&ctr=0.03&country=mx&publish_time=1744696334&channel=ve_home&language=mx&category=Entretenimiento&param=jesVrJI%2B2IyQVvL9eKUE%2BfYmfClAVbNoIR7n5k%2ByyQDHC7K10eKxfC7NZcCRuY%2ByhYCOcbhQvM6RYTm5rwCQaNsBYbCQZSfZXS4NubedIAMyOozKq20FVkegT185DI8%2BX4jDxuXinZj3HHBPICETznOtydgaqerIjOaxrta%2F8Z9IxifXMUATwjdcc0m%2B3wb2mawwQBqi2fslmei0lr0VUwCcB0ZoAzoFuXDulA2dIBLuMaJV0QBBI8gb48mWzAfVFq9YX0wSTgoUosXxfpE4SmnGfEPaY1DINg1DY1q%2B5nAfaANFUNVi1UrahsKlXQL%2F&expInfo=0
+欧洲: https://eu.flowika.com/posts/?fid=6127c4da7ca894b0fdae0e0192749d37&country=de&publish_time=1728198888&channel=ve_home&language=de&category=Others&param=jesVrJI%2B2IyQVvL9eKUE%2BfYmfClAVbNoIR7n5k%2ByyQByVyZNGpKE2a9A8zsEBwoHl%2BEaNtoiW%2BcyQSG66npc36SnJyvrJUFuYdy%2BWkNU4TTRewnakFKjdiO8ytmlMPDLPs92X%2BWw0FTF5NDTxuO7688BL6swZON4pn0Y2Aa7HIrzfHJrKdS1G9bGAvx2h31tGAtFHgS7vHcpjIQmQ1TBEdRw2vsMok6LlTnCMaDZvMWev7MadNCpdpM18%2FyZ6exZV7V1sFICVEoYvMc53CnjPOQxZZBDydaDQWg8Y2KTIdZCwRZ1V%2BZaQdKu0LfUqHwxiUI3QYH6JpUzJCSR3AgFyQ%3D%3D
+法国：https://eu.flowika.com/posts/?fid=85b8fb1f62320d778a4267f4ec14e1ed&country=fr&publish_time=1728198888&channel=ve_home&language=fr&category=Others&param=jesVrJI%2B2IyQVvL9eKUE%2BfYmfClAVbNoIR7n5k%2ByyQByVyZNGpKE2a9A8zsEBwoHl%2BEaNtoiW%2BcyQSG66npc36SnJyvrJUFuYdy%2BWkNU4TTRewnakFKjdiO8ytmlMPDLPs92X%2BWw0FTF5NDTxuO7688BL6swZON4pn0Y2Aa7HIrzfHJrKdS1G9bGAvx2h31tGAtFHgS7vHcpjIQmQ1TBEdRw2vsMok6LlTnCMaDZvMWev7MadNCpdpM18%2FyZ6exZV7V1sFICVEoYvMc53CnjPOQxZZBDydaDQWg8Y2KTIdZCwRZ1V%2BZaQdKu0LfUqHwxiUI3QYH6JpUzJCSR3AgFyQ%3D%3D
+西班牙：https://eu.flowika.com/posts/?fid=d68d66a3c7e0a1526883e099e8913308&country=es&publish_time=1728198888&channel=ve_home&language=es&category=Others&param=jesVrJI%2B2IyQVvL9eKUE%2BfYmfClAVbNoIR7n5k%2ByyQByVyZNGpKE2a9A8zsEBwoHl%2BEaNtoiW%2BcyQSG66npc36SnJyvrJUFuYdy%2BWkNU4TTRewnakFKjdiO8ytmlMPDLPs92X%2BWw0FTF5NDTxuO7688BL6swZON4pn0Y2Aa7HIrzfHJrKdS1G9bGAvx2h31tGAtFHgS7vHcpjIQmQ1TBEdRw2vsMok6LlTnCMaDZvMWev7MadNCpdpM18%2FyZ6exZV7V1sFICVEoYvMc53CnjPOQxZZBDydaDQWg8Y2KTIdZCwRZ1V%2BZaQdKu0LfUqHwxiUI3QYH6JpUzJCSR3AgFyQ%3D%3D
+波兰：https://eu.flowika.com/posts/?fid=07fdc309010b55eedab0bd1dae729a0d&country=pl&publish_time=1728198888&channel=ve_home&language=pl&category=Others&param=jesVrJI%2B2IyQVvL9eKUE%2BfYmfClAVbNoIR7n5k%2ByyQByVyZNGpKE2a9A8zsEBwoHl%2BEaNtoiW%2BcyQSG66npc36SnJyvrJUFuYdy%2BWkNU4TTRewnakFKjdiO8ytmlMPDLPs92X%2BWw0FTF5NDTxuO7688BL6swZON4pn0Y2Aa7HIrzfHJrKdS1G9bGAvx2h31tGAtFHgS7vHcpjIQmQ1TBEdRw2vsMok6LlTnCMaDZvMWev7MadNCpdpM18%2FyZ6exZV7V1sFICVEoYvMc53CnjPOQxZZBDydaDQWg8Y2KTIdZCwRZ1V%2BZaQdKu0LfUqHwxiUI3QYH6JpUzJCSR3AgFyQ%3D%3D
+
+
+上传文件命令：
+scp -i /path/to/private/key /home/user/file.txt username@server2:/home/user/
+
+
+
+上传文件到新加坡服务器 
+scp -i ~/.ssh/feed_crawler.pem 本地文件路径 ec2-user@ec2-13-214-211-252.ap-southeast-1.compute.amazonaws.com:/home/ec2-user/fr
+
+登录新加坡服务器
+ssh -i ~/.ssh/feed_crawler.pem ec2-user@ec2-13-214-211-252.ap-southeast-1.compute.amazonaws.com
+cd fr
+上传文件到欧洲服务器：
+scp -i feed_crawler_fr.pem /home/ec2-user/fr/替换文件路径 ec2-user@ec2-3-79-94-138.eu-central-1.compute.amazonaws.com:/home/ec2-user
+
+在新加坡登录欧洲服务器：
+ssh -i feed_crawler_fr.pem ec2-user@ec2-3-79-94-138.eu-central-1.compute.amazonaws.com
+
+scp D:/桌面/text.txt  username@remote_host:/path/to/remote/directory
+D:/桌面/text.txt ec2-user@ec2-13-214-211-252.ap-southeast-1.compute.amazonaws.com:/home/ec2-user/fr
+
+scp -i ~/.ssh/feed_crawler_fr.pem D:/桌面/text.txt ec2-user@ec2-3-79-94-138.eu-central-1.compute.amazonaws.com:/home/ec2-user
+feed_crawler_fr.pem
+
+欧洲机器：
+ssh -i ~/.ssh/feed_crawler_fr.pem ec2-user@ec2-3-79-94-138.eu-central-1.compute.amazonaws.com
+非欧洲机器：
+ssh -i ~/.ssh/feed_crawler.pem ec2-user@ec2-13-250-62-132.ap-southeast-1.compute.amazonaws.com
+ssh -i ~/.ssh/feed_crawler.pem ec2-user@ec2-13-214-211-252.ap-southeast-1.compute.amazonaws.com
+ssh -i ~/.ssh/feed_crawler.pem ec2-user@ec2-47-129-143-40.ap-southeast-1.compute.amazonaws.com
+
+scp -i ~/.ssh/feed_crawler.pem ec2-user@ec2-13-214-211-252.ap-southeast-1.compute.amazonaws.com:/spider/es-huffing3.py D:\桌面\总开发文件夹\Python_project\zhua\抓取文件
+
+scp -i ~/.ssh/feed_crawler.pem ec2-user@ec2-47-129-143-40.ap-southeast-1.compute.amazonaws.com:./es/new_ec.xlsx D:\桌面\总开发文件夹\Python_project\zhua\抓取文件
+
+scp -i ~/.ssh/feed_crawler.pem ec2-user@ec2-47-129-143-40.ap-southeast-1.compute.amazonaws.com:./es2/new_ec2.xlsx D:\桌面\总开发文件夹\Python_project\zhua\抓取文件
+scp /path/to/local/file username@remote_host:/path/to/remote/directory
+上线新方法
+增加一个新脚本pkg_new.sh， 增加 --dir xxx命令，可以只上线这个目录
+
+如果是上线某一个项目，则运行
+shell/pkg_new.sh prod_game_coolemon deploy
+如果上线某一个项目的某个目录则运行：
+shell/pkg_new.sh prod_game_coolemon deploy --dir 2_Player_Battle
+这样，原来需要上线2G内容，非常慢，现在只需要上传几MB，很快。
+
+
+df -h	显示文件系统的磁盘空间使用情况
+du -sh /path/to/directory	显示指定目录的磁盘使用情况
+ls -lh /path/to/directory	显示目录内容的详细信息，包括文件大小
+tree /path/to/directory 	以树状图显示目录结构。
+
+
+登录跳板机：
+ssh -i ~/.ssh/relay_traffic_sgp_aws.pem ec2-user@13.250.35.90
+
+删除 跳板机文件步骤：
+cd  /home/ec2-user//work/deploy/
+du -h --max-depth=1 /home/ec2-user//work/deploy/
+rm -rf  /home/ec2-user//work/deploy/*
+https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sfeed-435306!2sfeed_stats!3sfeed_event_p
+
+暴露配置项
+vue inspect > xxx.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+邮箱相关信息：
+# Email details
+smtp_server = "smtp.qq.com"
+smtp_port = 465
+sender_email = "2393016814@qq.com"
+receiver_email = "2393016814@qq.com"
+password = "znjturjdmvidecah"
+
+
+
+
+
+
+
+systemctl status crond
+
+crontab -e
+
+0 9 * * * /usr/bin/python3 /home/ec2-user/抓取数据定时报表/日常数据自动化.py
+
+
+
+周加单邮箱：joy@gostarfavor.com
+mike邮箱：mikezhao@molitechnews.com
+zhang：jz@gostarfavor.com
+
+
+
+
+
+
+Spain
+Brazil
+Germany
+France
+Italy
+Turkiye
+Poland
+Mexico
+
+
+新加坡
+mysql -h traffic.c0jcpfwom9ih.ap-southeast-1.rds.amazonaws.com \
+-u admin \
+-p oP8eU3pH
+
+
+# 账号 feed_x2
+mysql -h traffic.c0jcpfwom9ih.ap-southeast-1.rds.amazonaws.com \
+-u feed_x2 \
+-p G9w0BAQsFADBu
+
+# 账号 feed_r2
+mysql -htraffic.c0jcpfwom9ih.ap-southeast-1.rds.amazonaws.com \
+-u feed_r2 \
+-p obvkwB8pBaQ
+
+欧洲
+mysql -h feed.cluster-cpmi8ci660oi.eu-central-1.rds.amazonaws.com \
+-u admin \
+-p oP8eU3pH \
+feed
+
+# 账号 feed_x2
+mysql -h feed.cluster-cpmi8ci660oi.eu-central-1.rds.amazonaws.com \
+-u feed_x2 \
+-p G9w0BAQsFADBu
+
+# 账号 feed_r2
+mysql -h feed.cluster-ro-cpmi8ci660oi.eu-central-1.rds.amazonaws.com \
+-u feed_r2 \
+-p obvkwB8pBaQ
+
+
+(3.24-3.30)周汇总
+上线国家：西班牙、德国、法国、意大利、墨西哥、波兰、土耳其、巴西、俄罗斯
+收入情况：总计 $ ，日均 $
+
+分国家：
+西班牙：
+火山 detail show pv：日均 
+收入：$，日均 $
+德国：
+火山 detail show pv：日均 
+收入：$，日均 $
+墨西哥：
+火山 detail show pv：日均 
+收入：$，日均 $
+意大利：
+火山 detail show pv：日均 
+收入：$，日均 $
+法国：
+火山 detail show pv：日均 
+收入：$，日均 $
+波兰：
+火山 detail show pv：日均 
+收入：$，日均 $
+巴西：
+火山 detail show pv：日均 
+收入：$，日均 $
+土耳其：
+火山 detail show pv：日均 
+收入：$，日均 $
+俄罗斯：
+火山 detail show pv：日均 
+其他：
+收入：$，日均 $
+
+
+
+7.1号广告收入数据：
+    西班牙：$
+    德国：$
+    法国：$
+    波兰：$
+    墨西哥：$
+    意大利：$
+    土耳其：$
+    巴西：$
+    俄罗斯：$
+    其他：$
+    总计：$
+
+
+7.1号用户偏好数据(detail show pv)：
+    西班牙：
+    德国：
+    法国：
+    波兰：
+    墨西哥：
+    意大利： 
+    土耳其：
+    巴西：
+    俄罗斯：
+
+
+
+SELECT country, channel,count(*) FROM `feed-435306.feed_stats.feed_event_p` WHERE TIMESTAMP_TRUNC(_PARTITIONTIME, DAY) = TIMESTAMP("2025-05-27") and imp = 1 GROUP BY country,channel
+
+SELECT country,count(*) FROM `feed-435306.feed_stats.feed_event_p` WHERE TIMESTAMP_TRUNC(_PARTITIONTIME, DAY) = TIMESTAMP("2025-06-03") and imp = 1 GROUP BY country
+
+
+周报数据SQL：
+SELECT 
+  country,
+  SUM(imp_count) / COUNT(DISTINCT date) AS avg_imp_per_day
+FROM (
+  SELECT 
+    country,
+    TIMESTAMP_TRUNC(_PARTITIONTIME, DAY) AS date,
+    COUNT(*) AS imp_count
+  FROM `feed-435306.feed_stats.feed_event_p`
+  WHERE 
+    _PARTITIONTIME BETWEEN TIMESTAMP("2025-06-30") AND TIMESTAMP("2025-07-06")
+    AND imp = 1
+  GROUP BY country, date
+)
+GROUP BY country
+ORDER BY avg_imp_per_day DESC
+
+
+
+
+
+
+只读账号
+mysql -hfeed.cluster-ro-cpmi8ci660oi.eu-central-1.rds.amazonaws.com \
+-ufeed_r2 \
+-pobvkwB8pBaQ
+
+mysql -htraffic.c0jcpfwom9ih.ap-southeast-1.rds.amazonaws.com \
+-ufeed_r2 \
+-pobvkwB8pBaQ
+
+这个是写账号：
+mysql -htraffic.c0jcpfwom9ih.ap-southeast-1.rds.amazonaws.com \
+-ufeed_x2 \
+-pG9w0BAQsFADBu
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+export JAVA_HOME="/c/Users/23930/.jdks/corretto-1.8.0_452"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+
+
+
+
+
+
+# 1. 数据库连接配置
+# config = {
+#     "host": "traffic.c0jcpfwom9ih.ap-southeast-1.rds.amazonaws.com",
+#     "user": "feed_x1",
+#     "password": "eP4bC0eW",
+#     "database": "feed",
+#     "charset": "utf8mb4"
+# }
+
+
+
+查询重复数据
+SELECT `time`, `country`, COUNT(*) 
+FROM day_rec_feed_info 
+GROUP BY `time`, `country` 
+HAVING COUNT(*) > 1;
+
+
+
+
+
+兜底数据删除重复数据
+DELETE t1 FROM day_rec_feed_info t1
+INNER JOIN day_rec_feed_info t2 
+  ON t1.time = t2.time 
+ AND t1.country = t2.country 
+ AND t1.id > t2.id;
+
+
+
+
+
+
+创建中间页URL，推荐URL.
+
+ALTER TABLE monitor_event
+ADD COLUMN errorMessage TEXT NULL COMMENT 'errorMessage',
+ADD COLUMN detailUrl TEXT NULL COMMENT 'detailUrl',
+ADD COLUMN recUrl TEXT NULL COMMENT 'recUrl';
+
+
+
+
+https://bbq.mcwy.xyz/api/v1/client/subscribe?token=45da5bd27f80411ce7f4f75db51c1647&flag=clash
+
+
+
+SELECT
+  country,
+  COUNT(CASE WHEN type = 2 THEN 1 END) AS type2_count,
+  COUNT(CASE WHEN type = 1 THEN 1 END) AS type1_count,
+  ROUND(
+    COUNT(CASE WHEN type = 2 THEN 1 END) / NULLIF(COUNT(CASE WHEN type = 1 THEN 1 END), 0) * 100,
+    2
+  ) AS percent_type2_vs_type1
+FROM monitor_event
+WHERE ts BETWEEN 1750789267 AND 1750872091
+GROUP BY country;
+
+
+df -h
+
+
+会议背景：
+会议目的：
+参会人员：
+达成：
+
+
+
+
+
+`································································
+9-7： 1757303601271     
+
+
+
+tail -n 500 /home/work/log/feed-api/app.log
+
+
+
+ps aux | grep feed-api
+
+
+
+curl https://api-eu.puruxia.com/feed/m/ve/list?token=440e8499&language=es&country=es&page=0&size=100&date=2025-09-08
+
+
+{"lastTs":1757311200000}
+
+
+
+
+今日考勤:
+
+
+
+
+
+mvn clean packagewjava -jar target/feed-api.jar
+
+java -jar target/feed-api.jar
+
+
+
+
+mvn clean package
+
+
+
+
+
+java -jar target/feed_spider-1.0-SNAPSHOT.jar
+
+
+
+
+
+
+
